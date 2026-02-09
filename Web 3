@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SehatLansia - Gaya Hidup Sehat & Bahagia</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -16,7 +16,7 @@
         }
 
         .hero-section {
-            background: linear-gradient(rgba(30, 64, 175, 0.7), rgba(30, 64, 175, 0.7)), url('https://images.unsplash.com/photo-1571019614248-c5c7c354dc48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-image: linear-gradient(rgba(30, 64, 175, 0.7), rgba(30, 64, 175, 0.7)), url('https://images.unsplash.com/photo-1571019614248-c5c7c354dc48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
             height: 80vh;
@@ -98,24 +98,16 @@
                 </div>
             </div>
             
+            <!-- Hapus tombol login dari navbar -->
             <div class="hidden md:block">
                 <button onclick="window.location.href='#forum'" class="bg-blue-600 text-white px-6 py-2 rounded-full font-bold shadow hover:bg-blue-700 transition">
                     <i class="fas fa-comments mr-2"></i>Forum Diskusi
                 </button>
             </div>
             
-            <button class="md:hidden text-blue-900 text-2xl" onclick="toggleMobileMenu()">
+            <button class="md:hidden text-blue-900 text-2xl" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </button>
-            
-            <!-- Mobile Menu -->
-            <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 right-0 bg-white shadow-lg">
-                <div class="p-4">
-                    <button onclick="window.location.href='#forum'" class="w-full bg-blue-600 text-white px-6 py-3 rounded-full font-bold shadow mb-2">
-                        <i class="fas fa-comments mr-2"></i>Forum Diskusi
-                    </button>
-                </div>
-            </div>
         </div>
     </nav>
 
@@ -215,9 +207,9 @@
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-2">Topik Diskusi</label>
-                        <input type="text" id="discussionTopic" class="w-full p-3 rounded-lg text-gray-800 mb-3" placeholder="Judul diskusi..." required>
+                        <input type="text" id="discussionTopic" class="w-full p-3 rounded-lg text-gray-800 mb-3" placeholder="Judul diskusi...">
                     </div>
-                    <textarea id="commentInput" rows="4" class="w-full p-4 rounded-lg text-gray-800 text-lg mb-4 focus:ring-4 ring-yellow-400 outline-none" placeholder="Tulis isi diskusi Anda..." required></textarea>
+                    <textarea id="commentInput" rows="4" class="w-full p-4 rounded-lg text-gray-800 text-lg mb-4 focus:ring-4 ring-yellow-400 outline-none" placeholder="Tulis isi diskusi Anda..."></textarea>
                     <button onclick="addDiscussion()" class="w-full btn-action bg-yellow-400 text-blue-900 hover:bg-yellow-300">
                         <i class="fas fa-paper-plane mr-2"></i>Mulai Diskusi
                     </button>
@@ -266,7 +258,7 @@
                     <!-- Diskusi akan dimuat di sini -->
                 </div>
                 
-                <div id="noDiscussions" class="text-center py-12 bg-gray-50 rounded-xl border border-dashed border-gray-300 hidden">
+                <div id="noDiscussions" class="text-center py-12 bg-gray-50 rounded-xl border border-dashed border-gray-300">
                     <i class="fas fa-comments text-4xl text-gray-400 mb-4"></i>
                     <h4 class="text-xl font-bold text-gray-600 mb-2">Belum ada diskusi</h4>
                     <p class="text-gray-500">Jadilah yang pertama memulai diskusi!</p>
@@ -281,12 +273,11 @@
             <h2 class="text-2xl font-bold text-white mb-4">SehatLansia</h2>
             <p class="mb-6 max-w-lg mx-auto">Kami berdedikasi untuk memberikan informasi kesehatan yang akurat dan mudah dipahami demi kualitas hidup lansia yang lebih baik.</p>
             <div class="flex justify-center gap-6 mb-8">
-                <button onclick="shareOnFacebook()" class="text-2xl hover:text-yellow-400"><i class="fab fa-facebook"></i></button>
-                <button onclick="shareOnWhatsApp()" class="text-2xl hover:text-yellow-400"><i class="fab fa-whatsapp"></i></button>
-                <button onclick="shareOnInstagram()" class="text-2xl hover:text-yellow-400"><i class="fab fa-instagram"></i></button>
+                <a href="#" class="text-2xl hover:text-yellow-400"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-2xl hover:text-yellow-400"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="text-2xl hover:text-yellow-400"><i class="fab fa-instagram"></i></a>
             </div>
             <p class="text-sm">&copy; 2024 SehatLansia. All rights reserved.</p>
-            <p class="text-xs text-gray-500 mt-4">Aplikasi ini berjalan 100% di browser Anda tanpa server</p>
         </div>
     </footer>
 
@@ -311,13 +302,13 @@
                 <div class="mt-8 pt-6 border-t border-gray-200">
                     <h4 class="font-bold text-gray-800 mb-3">Bagikan artikel ini:</h4>
                     <div class="flex gap-3">
-                        <button onclick="shareArticleOnFacebook()" class="bg-blue-100 text-blue-700 p-3 rounded-lg hover:bg-blue-200 transition">
+                        <button class="bg-blue-100 text-blue-700 p-3 rounded-lg hover:bg-blue-200 transition">
                             <i class="fab fa-facebook"></i>
                         </button>
-                        <button onclick="shareArticleOnWhatsApp()" class="bg-green-100 text-green-700 p-3 rounded-lg hover:bg-green-200 transition">
+                        <button class="bg-green-100 text-green-700 p-3 rounded-lg hover:bg-green-200 transition">
                             <i class="fab fa-whatsapp"></i>
                         </button>
-                        <button onclick="shareArticleOnInstagram()" class="bg-pink-100 text-pink-700 p-3 rounded-lg hover:bg-pink-200 transition">
+                        <button class="bg-pink-100 text-pink-700 p-3 rounded-lg hover:bg-pink-200 transition">
                             <i class="fab fa-instagram"></i>
                         </button>
                     </div>
@@ -341,7 +332,7 @@
                     <p class="text-xs text-gray-500 mt-1">Jika kosong, akan tampil sebagai "Tamu"</p>
                 </div>
                 
-                <textarea id="replyInput" rows="6" class="w-full p-4 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none text-lg mb-6" placeholder="Tulis balasan Anda..." required></textarea>
+                <textarea id="replyInput" rows="6" class="w-full p-4 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none text-lg mb-6" placeholder="Tulis balasan Anda..."></textarea>
                 
                 <div class="flex justify-end gap-3">
                     <button onclick="closeModal('replyModal')" class="px-6 py-2 border border-gray-300 rounded-lg font-bold text-gray-700 hover:bg-gray-100">
@@ -551,25 +542,15 @@
         };
 
         // --- KONFIGURASI ---
-        const DB_DISCUSSIONS = 'sehat_lansia_discussions';
+        const DB_DISCUSSIONS = 'sehat_discussions';
         let currentSort = 'newest';
         let replyingToId = null;
-        let currentArticle = null;
 
         // --- INIT SAAT LOAD ---
         document.addEventListener('DOMContentLoaded', () => {
-            console.log('SehatLansia - Aplikasi siap digunakan!');
             loadDiscussions();
             setupScrollAnimation();
             updateStats();
-            
-            // Cek apakah localStorage tersedia
-            if (typeof(Storage) === "undefined") {
-                alert("Browser Anda tidak mendukung localStorage. Beberapa fitur mungkin tidak berfungsi.");
-            }
-            
-            // Sembunyikan pesan "belum ada diskusi" sementara
-            document.getElementById('noDiscussions').classList.add('hidden');
         });
 
         // --- SETUP SCROLL ANIMATION ---
@@ -597,7 +578,6 @@
             const article = articlesDB[type];
             if (!article) return;
             
-            currentArticle = type;
             document.getElementById('articleIcon').innerHTML = article.icon;
             document.getElementById('articleTitle').textContent = article.title;
             document.getElementById('articleSubtitle').textContent = article.subtitle;
@@ -608,77 +588,60 @@
 
         // --- FUNGSI DISKUSI ---
         function loadDiscussions() {
-            try {
-                let discussions = JSON.parse(localStorage.getItem(DB_DISCUSSIONS)) || [];
-                
-                // Jika belum ada diskusi, buat beberapa contoh
-                if (discussions.length === 0) {
-                    discussions = [
-                        {
-                            id: generateId(),
-                            topic: "Tips Menurunkan Tekanan Darah",
-                            content: "Saya punya tekanan darah 150/95, apa yang bisa saya lakukan selain minum obat?",
-                            user: "Budi Santoso",
-                            timestamp: new Date(Date.now() - 86400000).toISOString(),
-                            replies: [
-                                {
-                                    id: generateId(),
-                                    content: "Coba kurangi garam dan lakukan jalan pagi 30 menit setiap hari. Ibu saya juga hipertensi dan cara itu membantu.",
-                                    user: "Siti Rahayu",
-                                    timestamp: new Date(Date.now() - 43200000).toISOString(),
-                                    likes: 3
-                                },
-                                {
-                                    id: generateId(),
-                                    content: "Saran saya, konsultasi rutin ke dokter dan minum obat teratur. Jangan lupa cek tekanan darah mingguan.",
-                                    user: "dr. Hartono",
-                                    timestamp: new Date(Date.now() - 21600000).toISOString(),
-                                    likes: 5,
-                                    isDoctor: true
-                                }
-                            ],
-                            likes: 8,
-                            views: 42,
-                            userLiked: false
-                        },
-                        {
-                            id: generateId(),
-                            topic: "Nyeri Sendi Lutut",
-                            content: "Lutut saya sering nyeri saat bangun tidur atau setelah duduk lama. Ada saran olahraga yang aman?",
-                            user: "Mbak Sari",
-                            timestamp: new Date(Date.now() - 172800000).toISOString(),
-                            replies: [
-                                {
-                                    id: generateId(),
-                                    content: "Coba senam ringan di kursi atau berenang. Saya juga pakai kompres hangat sebelum tidur.",
-                                    user: "Pak Darso",
-                                    timestamp: new Date(Date.now() - 86400000).toISOString(),
-                                    likes: 4
-                                }
-                            ],
-                            likes: 5,
-                            views: 28,
-                            userLiked: false
-                        }
-                    ];
-                    localStorage.setItem(DB_DISCUSSIONS, JSON.stringify(discussions));
-                }
-                
-                // Load liked status dari localStorage
-                discussions.forEach(discussion => {
-                    const likeKey = `like_${discussion.id}`;
-                    discussion.userLiked = localStorage.getItem(likeKey) === 'true';
-                });
-                
-                sortAndRenderDiscussions(discussions);
-            } catch (error) {
-                console.error('Error loading discussions:', error);
-                document.getElementById('discussionsList').innerHTML = `
-                    <div class="bg-red-50 p-4 rounded-lg border border-red-200">
-                        <p class="text-red-700">Terjadi kesalahan saat memuat diskusi. Silakan refresh halaman.</p>
-                    </div>
-                `;
+            let discussions = JSON.parse(localStorage.getItem(DB_DISCUSSIONS)) || [];
+            
+            // Jika belum ada diskusi, buat beberapa contoh
+            if (discussions.length === 0) {
+                discussions = [
+                    {
+                        id: generateId(),
+                        topic: "Tips Menurunkan Tekanan Darah",
+                        content: "Saya punya tekanan darah 150/95, apa yang bisa saya lakukan selain minum obat?",
+                        user: "Budi Santoso",
+                        timestamp: new Date(Date.now() - 86400000).toISOString(),
+                        replies: [
+                            {
+                                id: generateId(),
+                                content: "Coba kurangi garam dan lakukan jalan pagi 30 menit setiap hari. Ibu saya juga hipertensi dan cara itu membantu.",
+                                user: "Siti Rahayu",
+                                timestamp: new Date(Date.now() - 43200000).toISOString(),
+                                likes: 3
+                            },
+                            {
+                                id: generateId(),
+                                content: "Saran saya, konsultasi rutin ke dokter dan minum obat teratur. Jangan lupa cek tekanan darah mingguan.",
+                                user: "dr. Hartono",
+                                timestamp: new Date(Date.now() - 21600000).toISOString(),
+                                likes: 5,
+                                isDoctor: true
+                            }
+                        ],
+                        likes: 8,
+                        views: 42
+                    },
+                    {
+                        id: generateId(),
+                        topic: "Nyeri Sendi Lutut",
+                        content: "Lutut saya sering nyeri saat bangun tidur atau setelah duduk lama. Ada saran olahraga yang aman?",
+                        user: "Mbak Sari",
+                        timestamp: new Date(Date.now() - 172800000).toISOString(),
+                        replies: [
+                            {
+                                id: generateId(),
+                                content: "Coba senam ringan di kursi atau berenang. Saya juga pakai kompres hangat sebelum tidur.",
+                                user: "Pak Darso",
+                                timestamp: new Date(Date.now() - 86400000).toISOString(),
+                                likes: 4
+                            }
+                        ],
+                        likes: 5,
+                        views: 28
+                    }
+                ];
+                localStorage.setItem(DB_DISCUSSIONS, JSON.stringify(discussions));
             }
+            
+            sortAndRenderDiscussions(discussions);
         }
 
         function sortAndRenderDiscussions(discussions) {
@@ -751,7 +714,7 @@
                             
                             <div class="flex justify-between items-center">
                                 <div class="flex gap-4">
-                                    <button onclick="likeDiscussion('${discussion.id}')" class="flex items-center gap-1 ${discussion.userLiked ? 'text-red-600' : 'text-gray-600'} hover:text-red-600">
+                                    <button onclick="likeDiscussion('${discussion.id}')" class="flex items-center gap-1 text-gray-600 hover:text-red-600">
                                         <i class="fas fa-heart ${discussion.userLiked ? 'text-red-600' : ''}"></i>
                                         <span>${discussion.likes || 0}</span>
                                     </button>
@@ -810,60 +773,48 @@
             const topic = document.getElementById('discussionTopic').value.trim();
             const content = document.getElementById('commentInput').value.trim();
             
-            if (!topic) {
-                alert('Mohon isi judul diskusi.');
-                document.getElementById('discussionTopic').focus();
+            if (!topic || !content) {
+                alert('Mohon isi judul dan isi diskusi.');
                 return;
             }
             
-            if (!content) {
-                alert('Mohon isi isi diskusi.');
-                document.getElementById('commentInput').focus();
-                return;
-            }
+            let discussions = JSON.parse(localStorage.getItem(DB_DISCUSSIONS)) || [];
+            const newDiscussion = {
+                id: generateId(),
+                topic: topic,
+                content: content,
+                user: userName || "Tamu",
+                timestamp: new Date().toISOString(),
+                replies: [],
+                likes: 0,
+                views: 0,
+                userLiked: false
+            };
             
-            try {
-                let discussions = JSON.parse(localStorage.getItem(DB_DISCUSSIONS)) || [];
-                const newDiscussion = {
-                    id: generateId(),
-                    topic: topic,
-                    content: content,
-                    user: userName || "Tamu",
-                    timestamp: new Date().toISOString(),
-                    replies: [],
-                    likes: 0,
-                    views: 0,
-                    userLiked: false
-                };
-                
-                discussions.unshift(newDiscussion);
-                localStorage.setItem(DB_DISCUSSIONS, JSON.stringify(discussions));
-                
-                // Reset form
-                document.getElementById('userName').value = '';
-                document.getElementById('discussionTopic').value = '';
-                document.getElementById('commentInput').value = '';
-                
-                // Reload dan scroll ke diskusi baru
-                loadDiscussions();
-                setTimeout(() => {
-                    const element = document.getElementById(`discussion-${newDiscussion.id}`);
-                    if (element) {
-                        element.scrollIntoView({ behavior: 'smooth' });
-                        element.classList.add('highlight-new');
-                        
-                        // Hapus highlight setelah 2 detik
-                        setTimeout(() => {
-                            element.classList.remove('highlight-new');
-                        }, 2000);
-                    }
-                }, 100);
-                
-                alert('Diskusi berhasil ditambahkan!');
-            } catch (error) {
-                console.error('Error adding discussion:', error);
-                alert('Terjadi kesalahan saat menyimpan diskusi.');
-            }
+            discussions.unshift(newDiscussion);
+            localStorage.setItem(DB_DISCUSSIONS, JSON.stringify(discussions));
+            
+            // Reset form
+            document.getElementById('userName').value = '';
+            document.getElementById('discussionTopic').value = '';
+            document.getElementById('commentInput').value = '';
+            
+            // Reload dan scroll ke diskusi baru
+            loadDiscussions();
+            setTimeout(() => {
+                const element = document.getElementById(`discussion-${newDiscussion.id}`);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                    element.classList.add('highlight-new');
+                    
+                    // Hapus highlight setelah 2 detik
+                    setTimeout(() => {
+                        element.classList.remove('highlight-new');
+                    }, 2000);
+                }
+            }, 100);
+            
+            alert('Diskusi berhasil ditambahkan!');
         }
 
         function openReplyModal(discussionId, topic) {
@@ -881,124 +832,103 @@
             
             if (!content) {
                 alert('Mohon isi balasan Anda.');
-                document.getElementById('replyInput').focus();
                 return;
             }
             
-            try {
-                let discussions = JSON.parse(localStorage.getItem(DB_DISCUSSIONS)) || [];
-                const discussionIndex = discussions.findIndex(d => d.id === replyingToId);
-                
-                if (discussionIndex === -1) {
-                    alert('Diskusi tidak ditemukan.');
-                    return;
-                }
-                
-                if (!discussions[discussionIndex].replies) {
-                    discussions[discussionIndex].replies = [];
-                }
-                
-                const newReply = {
-                    id: generateId(),
-                    content: content,
-                    user: userName || "Tamu",
-                    timestamp: new Date().toISOString(),
-                    likes: 0
-                };
-                
-                discussions[discussionIndex].replies.push(newReply);
-                localStorage.setItem(DB_DISCUSSIONS, JSON.stringify(discussions));
-                
-                closeModal('replyModal');
-                
-                // Update tampilan langsung
-                const repliesContainer = document.getElementById(`replies-${replyingToId}`);
-                if (repliesContainer) {
-                    repliesContainer.classList.remove('hidden');
-                    const replyTime = getTimeAgo(newReply.timestamp);
-                    const replyHtml = `
-                        <div class="reply-item p-4 rounded-lg highlight-new">
-                            <div class="flex justify-between items-start mb-2">
-                                <div class="flex items-center">
-                                    <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center mr-2">
-                                        <i class="fas fa-user text-gray-600 text-sm"></i>
-                                    </div>
-                                    <h5 class="font-bold text-gray-700">${newReply.user}</h5>
-                                </div>
-                                <span class="text-xs text-gray-400">${replyTime}</span>
-                            </div>
-                            <p class="text-gray-600">${newReply.content}</p>
-                        </div>
-                    `;
-                    repliesContainer.innerHTML += replyHtml;
-                    
-                    // Update jumlah balasan
-                    const badge = document.querySelector(`#discussion-${replyingToId} .bg-blue-100 span`);
-                    if (badge) {
-                        const currentCount = parseInt(badge.textContent) || 0;
-                        badge.textContent = currentCount + 1;
-                    }
-                    
-                    // Update tombol toggle
-                    const toggleButton = document.querySelector(`#discussion-${replyingToId} button[onclick="toggleReplies('${replyingToId}')"]`);
-                    if (toggleButton) {
-                        toggleButton.innerHTML = 'Sembunyikan Balasan <i class="fas fa-chevron-up ml-1"></i>';
-                    }
-                    
-                    // Hapus highlight setelah 2 detik
-                    setTimeout(() => {
-                        const newReplyElement = repliesContainer.lastElementChild;
-                        if (newReplyElement) newReplyElement.classList.remove('highlight-new');
-                    }, 2000);
-                }
-                
-                updateStats();
-                alert('Balasan berhasil dikirim!');
-            } catch (error) {
-                console.error('Error submitting reply:', error);
-                alert('Terjadi kesalahan saat mengirim balasan.');
+            let discussions = JSON.parse(localStorage.getItem(DB_DISCUSSIONS)) || [];
+            const discussionIndex = discussions.findIndex(d => d.id === replyingToId);
+            
+            if (discussionIndex === -1) return;
+            
+            if (!discussions[discussionIndex].replies) {
+                discussions[discussionIndex].replies = [];
             }
+            
+            const newReply = {
+                id: generateId(),
+                content: content,
+                user: userName || "Tamu",
+                timestamp: new Date().toISOString(),
+                likes: 0
+            };
+            
+            discussions[discussionIndex].replies.push(newReply);
+            localStorage.setItem(DB_DISCUSSIONS, JSON.stringify(discussions));
+            
+            closeModal('replyModal');
+            
+            // Update tampilan langsung
+            const repliesContainer = document.getElementById(`replies-${replyingToId}`);
+            if (repliesContainer) {
+                repliesContainer.classList.remove('hidden');
+                const replyTime = getTimeAgo(newReply.timestamp);
+                const replyHtml = `
+                    <div class="reply-item p-4 rounded-lg highlight-new">
+                        <div class="flex justify-between items-start mb-2">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center mr-2">
+                                    <i class="fas fa-user text-gray-600 text-sm"></i>
+                                </div>
+                                <h5 class="font-bold text-gray-700">${newReply.user}</h5>
+                            </div>
+                            <span class="text-xs text-gray-400">${replyTime}</span>
+                        </div>
+                        <p class="text-gray-600">${newReply.content}</p>
+                    </div>
+                `;
+                repliesContainer.innerHTML += replyHtml;
+                
+                // Update jumlah balasan
+                const badge = document.querySelector(`#discussion-${replyingToId} .bg-blue-100 span`);
+                if (badge) {
+                    const currentCount = parseInt(badge.textContent) || 0;
+                    badge.textContent = currentCount + 1;
+                }
+                
+                // Hapus highlight setelah 2 detik
+                setTimeout(() => {
+                    const newReplyElement = repliesContainer.lastElementChild;
+                    if (newReplyElement) newReplyElement.classList.remove('highlight-new');
+                }, 2000);
+            }
+            
+            updateStats();
+            alert('Balasan berhasil dikirim!');
         }
 
         function likeDiscussion(discussionId) {
-            try {
-                let discussions = JSON.parse(localStorage.getItem(DB_DISCUSSIONS)) || [];
-                const discussionIndex = discussions.findIndex(d => d.id === discussionId);
-                
-                if (discussionIndex === -1) return;
-                
-                // Cek apakah sudah ada like dari user ini (berdasarkan localStorage)
-                const likeKey = `like_${discussionId}`;
-                const hasLiked = localStorage.getItem(likeKey) === 'true';
-                
-                if (hasLiked) {
-                    discussions[discussionIndex].likes = Math.max(0, (discussions[discussionIndex].likes || 0) - 1);
-                    localStorage.setItem(likeKey, 'false');
-                    discussions[discussionIndex].userLiked = false;
+            let discussions = JSON.parse(localStorage.getItem(DB_DISCUSSIONS)) || [];
+            const discussionIndex = discussions.findIndex(d => d.id === discussionId);
+            
+            if (discussionIndex === -1) return;
+            
+            // Cek apakah sudah ada like dari user ini (berdasarkan localStorage)
+            const likeKey = `like_${discussionId}`;
+            const hasLiked = localStorage.getItem(likeKey) === 'true';
+            
+            if (hasLiked) {
+                discussions[discussionIndex].likes = Math.max(0, (discussions[discussionIndex].likes || 0) - 1);
+                localStorage.setItem(likeKey, 'false');
+                discussions[discussionIndex].userLiked = false;
+            } else {
+                discussions[discussionIndex].likes = (discussions[discussionIndex].likes || 0) + 1;
+                localStorage.setItem(likeKey, 'true');
+                discussions[discussionIndex].userLiked = true;
+            }
+            
+            localStorage.setItem(DB_DISCUSSIONS, JSON.stringify(discussions));
+            
+            // Update tampilan like
+            const likeButton = document.querySelector(`#discussion-${discussionId} .fa-heart`);
+            const likeCount = document.querySelector(`#discussion-${discussionId} .fa-heart + span`);
+            
+            if (likeButton && likeCount) {
+                if (discussions[discussionIndex].userLiked) {
+                    likeButton.classList.add('text-red-600');
                 } else {
-                    discussions[discussionIndex].likes = (discussions[discussionIndex].likes || 0) + 1;
-                    localStorage.setItem(likeKey, 'true');
-                    discussions[discussionIndex].userLiked = true;
+                    likeButton.classList.remove('text-red-600');
                 }
-                
-                localStorage.setItem(DB_DISCUSSIONS, JSON.stringify(discussions));
-                
-                // Update tampilan like
-                const likeButton = document.querySelector(`#discussion-${discussionId} .fa-heart`);
-                const likeCount = document.querySelector(`#discussion-${discussionId} .fa-heart + span`);
-                
-                if (likeButton && likeCount) {
-                    if (discussions[discussionIndex].userLiked) {
-                        likeButton.classList.add('text-red-600');
-                        likeButton.parentElement.classList.add('text-red-600');
-                    } else {
-                        likeButton.classList.remove('text-red-600');
-                        likeButton.parentElement.classList.remove('text-red-600');
-                    }
-                    likeCount.textContent = discussions[discussionIndex].likes;
-                }
-            } catch (error) {
-                console.error('Error liking discussion:', error);
+                likeCount.textContent = discussions[discussionIndex].likes;
             }
         }
 
@@ -1011,21 +941,17 @@
                 toggleButton.innerHTML = 'Sembunyikan Balasan <i class="fas fa-chevron-up ml-1"></i>';
                 
                 // Update view count
-                try {
-                    let discussions = JSON.parse(localStorage.getItem(DB_DISCUSSIONS)) || [];
-                    const discussionIndex = discussions.findIndex(d => d.id === discussionId);
-                    if (discussionIndex !== -1) {
-                        discussions[discussionIndex].views = (discussions[discussionIndex].views || 0) + 1;
-                        localStorage.setItem(DB_DISCUSSIONS, JSON.stringify(discussions));
-                        
-                        // Update view count display
-                        const viewCount = document.querySelector(`#discussion-${discussionId} .fa-eye + span`);
-                        if (viewCount) {
-                            viewCount.textContent = discussions[discussionIndex].views;
-                        }
+                let discussions = JSON.parse(localStorage.getItem(DB_DISCUSSIONS)) || [];
+                const discussionIndex = discussions.findIndex(d => d.id === discussionId);
+                if (discussionIndex !== -1) {
+                    discussions[discussionIndex].views = (discussions[discussionIndex].views || 0) + 1;
+                    localStorage.setItem(DB_DISCUSSIONS, JSON.stringify(discussions));
+                    
+                    // Update view count display
+                    const viewCount = document.querySelector(`#discussion-${discussionId} .fa-eye + span`);
+                    if (viewCount) {
+                        viewCount.textContent = discussions[discussionIndex].views;
                     }
-                } catch (error) {
-                    console.error('Error updating view count:', error);
                 }
             } else {
                 repliesContainer.classList.add('hidden');
@@ -1034,16 +960,12 @@
         }
 
         function updateStats() {
-            try {
-                const discussions = JSON.parse(localStorage.getItem(DB_DISCUSSIONS)) || [];
-                const totalDiscussions = discussions.length;
-                const totalReplies = discussions.reduce((sum, d) => sum + (d.replies ? d.replies.length : 0), 0);
-                
-                document.getElementById('totalDiscussions').textContent = totalDiscussions;
-                document.getElementById('totalReplies').textContent = totalReplies;
-            } catch (error) {
-                console.error('Error updating stats:', error);
-            }
+            const discussions = JSON.parse(localStorage.getItem(DB_DISCUSSIONS)) || [];
+            const totalDiscussions = discussions.length;
+            const totalReplies = discussions.reduce((sum, d) => sum + (d.replies ? d.replies.length : 0), 0);
+            
+            document.getElementById('totalDiscussions').textContent = totalDiscussions;
+            document.getElementById('totalReplies').textContent = totalReplies;
         }
 
         // --- FUNGSI SEARCH ---
@@ -1095,75 +1017,27 @@
         }
         
         function generateId() {
-            return Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+            return Date.now().toString(36) + Math.random().toString(36).substr(2);
         }
         
         function getTimeAgo(timestamp) {
-            try {
-                const now = new Date();
-                const past = new Date(timestamp);
-                const diffMs = now - past;
-                const diffMins = Math.floor(diffMs / 60000);
-                const diffHours = Math.floor(diffMs / 3600000);
-                const diffDays = Math.floor(diffMs / 86400000);
-                
-                if (diffMins < 60) return `${diffMins} menit lalu`;
-                if (diffHours < 24) return `${diffHours} jam lalu`;
-                if (diffDays < 7) return `${diffDays} hari lalu`;
-                return past.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
-            } catch (error) {
-                return 'beberapa waktu lalu';
-            }
+            const now = new Date();
+            const past = new Date(timestamp);
+            const diffMs = now - past;
+            const diffMins = Math.floor(diffMs / 60000);
+            const diffHours = Math.floor(diffMs / 3600000);
+            const diffDays = Math.floor(diffMs / 86400000);
+            
+            if (diffMins < 60) return `${diffMins} menit lalu`;
+            if (diffHours < 24) return `${diffHours} jam lalu`;
+            if (diffDays < 7) return `${diffDays} hari lalu`;
+            return past.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
         }
         
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
+        // Fungsi toggle menu untuk mobile (jika diperlukan)
+        function toggleMenu() {
+            // Implementasi toggle menu mobile jika diperlukan
         }
-        
-        // Fungsi share sederhana
-        function shareOnFacebook() {
-            const url = window.location.href;
-            const text = "Lihat aplikasi SehatLansia - Panduan kesehatan untuk lansia!";
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`, '_blank');
-        }
-        
-        function shareOnWhatsApp() {
-            const text = "Lihat aplikasi SehatLansia - Panduan kesehatan untuk lansia! " + window.location.href;
-            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
-        }
-        
-        function shareOnInstagram() {
-            alert("Untuk berbagi di Instagram, salin link ini dan bagikan di Instagram Anda: " + window.location.href);
-        }
-        
-        function shareArticleOnFacebook() {
-            if (!currentArticle) return;
-            const article = articlesDB[currentArticle];
-            const text = `Baca artikel: "${article.title}" - ${article.subtitle}`;
-            window.open(`https://www.facebook.com/sharer/sharer.php?quote=${encodeURIComponent(text)}`, '_blank');
-        }
-        
-        function shareArticleOnWhatsApp() {
-            if (!currentArticle) return;
-            const article = articlesDB[currentArticle];
-            const text = `Baca artikel: "${article.title}" - ${article.subtitle}`;
-            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
-        }
-        
-        function shareArticleOnInstagram() {
-            if (!currentArticle) return;
-            const article = articlesDB[currentArticle];
-            alert(`Untuk berbagi artikel "${article.title}" di Instagram, salin teks berikut:\n\n${article.title}\n${article.subtitle}`);
-        }
-        
-        // Tutup modal dengan ESC
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal('articleModal');
-                closeModal('replyModal');
-            }
-        });
     </script>
 </body>
 </html>
