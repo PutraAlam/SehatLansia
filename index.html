@@ -152,7 +152,7 @@
                     <i class="fas fa-heart text-6xl text-red-500"></i>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Jantung Sehat</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Cara Memandikan</h3>
                     <p class="text-gray-600 text-base mb-4">Tips menjaga tekanan darah dan kolesterol agar jantung tetap kuat di usia senja.</p>
                     <button class="text-red-600 font-bold hover:underline" onclick="showArticle('jantung')">Baca Selengkapnya &rarr;</button>
                 </div>
@@ -163,7 +163,7 @@
                     <i class="fas fa-carrot text-6xl text-green-500"></i>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Nutrisi Lansia</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Cara Menyuapi</h3>
                     <p class="text-gray-600 text-base mb-4">Panduan makanan yang mudah dicerna dan kaya vitamin untuk vitalitas harian.</p>
                     <button class="text-green-600 font-bold hover:underline" onclick="showArticle('nutrisi')">Baca Selengkapnya &rarr;</button>
                 </div>
@@ -174,7 +174,7 @@
                     <i class="fas fa-bone text-6xl text-blue-500"></i>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Tulang & Sendi</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Berjemur</h3>
                     <p class="text-gray-600 text-base mb-4">Latihan ringan dan suplemen alami untuk mencegah nyeri sendi dan osteoporosis.</p>
                     <button class="text-blue-600 font-bold hover:underline" onclick="showArticle('tulang')">Baca Selengkapnya &rarr;</button>
                 </div>
@@ -185,7 +185,7 @@
                     <i class="fas fa-brain text-6xl text-purple-500"></i>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Pikiran Tajam</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Fisioterapi</h3>
                     <p class="text-gray-600 text-base mb-4">Aktivitas dan hobi yang melatih memori untuk mencegah pikun dini.</p>
                     <button class="text-purple-600 font-bold hover:underline" onclick="showArticle('otak')">Baca Selengkapnya &rarr;</button>
                 </div>
@@ -370,53 +370,61 @@
         // --- DATA ARTIKEL LENGKAP ---
         const articlesDB = {
             jantung: {
-                title: "Jantung Sehat di Usia Lanjut",
-                subtitle: "Tips menjaga tekanan darah dan kolesterol",
+                title: "Cara Memandikan",
+                subtitle: "Panduan memandikan pasien stroke dengan aman",
                 icon: '<i class="fas fa-heart text-red-500"></i>',
                 content: `
                     <div class="space-y-6">
-                        <div class="bg-red-50 p-4 rounded-lg">
-                            <h3 class="text-xl font-bold text-red-700 mb-2">🫀 Pentingnya Kesehatan Jantung</h3>
-                            <p>Jantung adalah organ vital yang memompa darah ke seluruh tubuh. Di usia lanjut, jantung membutuhkan perhatian khusus karena risiko penyakit kardiovaskular meningkat.</p>
-                        </div>
+                        <p>Berikut cara memandikan orang yang mengalami stroke dengan aman dan nyaman. Pelan-pelan ya, yang penting keselamatan dan martabat pasien tetap terjaga.</p>
                         
-                        <h3 class="text-2xl font-bold text-gray-800 mt-6">📋 Tips Praktis Sehari-hari:</h3>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <span class="bg-red-100 text-red-700 p-2 rounded mr-3"><i class="fas fa-walking"></i></span>
-                                <div>
-                                    <strong>Olahraga Ringan:</strong> Lakukan jalan pagi 30 menit setiap hari atau senam ringan 3 kali seminggu
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="bg-red-100 text-red-700 p-2 rounded mr-3"><i class="fas fa-utensils"></i></span>
-                                <div>
-                                    <strong>Diet Sehat:</strong> Kurangi garam, gula, dan lemak jenuh. Perbanyak sayuran hijau dan ikan
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="bg-red-100 text-red-700 p-2 rounded mr-3"><i class="fas fa-heartbeat"></i></span>
-                                <div>
-                                    <strong>Monitor Tekanan Darah:</strong> Cek tekanan darah rutin setiap minggu
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="bg-red-100 text-red-700 p-2 rounded mr-3"><i class="fas fa-ban"></i></span>
-                                <div>
-                                    <strong>Hindari Rokok & Alkohol:</strong> Keduanya dapat meningkatkan risiko serangan jantung
-                                </div>
-                            </li>
+                        <h3 class="text-2xl font-bold text-gray-800">Persiapan dulu</h3>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Alat lengkap: air hangat, sabun lembut, sampo, handuk besar, baju ganti, alas anti-licin.</li>
+                            <li>Pastikan ruangan hangat supaya pasien tidak kedinginan.</li>
+                            <li>Cek kondisi pasien: kalau terlihat sangat lelah, pusing, atau tekanan darah tidak stabil, sebaiknya ditunda.</li>
                         </ul>
                         
-                        <div class="bg-blue-50 p-4 rounded-lg mt-6">
-                            <h4 class="font-bold text-blue-700 mb-2">💡 Fakta Penting:</h4>
-                            <p>Tekanan darah normal untuk lansia adalah 120/80 mmHg. Konsultasi dengan dokter secara berkala sangat dianjurkan untuk memantau kesehatan jantung.</p>
-                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Posisi mandi (pilih sesuai kondisi)</h3>
+                        <h4 class="text-xl font-bold text-gray-700">Di kamar mandi</h4>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Gunakan kursi mandi atau bangku.</li>
+                            <li>Pasang alas anti-selip.</li>
+                        </ul>
+                        <h4 class="text-xl font-bold text-gray-700">Di tempat tidur (untuk yang tidak bisa berdiri/duduk lama)</h4>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Gunakan baskom dan waslap.</li>
+                            <li>Tutupi bagian tubuh yang belum dimandikan dengan handuk.</li>
+                        </ul>
+                        
+                        <h3 class="text-2xl font-bold text-gray-800">Langkah memandikan</h3>
+                        <ol class="list-decimal pl-6 space-y-2">
+                            <li>Mulai dari kepala ke bawah (rambut → wajah → badan → kaki).</li>
+                            <li>Bersihkan sisi tubuh yang lemah terakhir, lakukan perlahan.</li>
+                            <li>Gunakan gerakan lembut, jangan ditarik atau dipaksa.</li>
+                            <li>Bilas sampai bersih, jangan sampai sabun tertinggal (bisa bikin iritasi).</li>
+                            <li>Keringkan dengan ditepuk pelan, terutama lipatan kulit.</li>
+                            <li>Pakaikan baju bersih, utamakan sisi tubuh yang lemah dulu saat memakaikan.</li>
+                        </ol>
+                        
+                        <h3 class="text-2xl font-bold text-gray-800">Hal penting yang harus diperhatikan</h3>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Jangan ditinggal sendirian di kamar mandi.</li>
+                            <li>Komunikasi terus: beri tahu setiap langkah (“sekarang mau bilas ya”).</li>
+                            <li>Perhatikan tanda tidak nyaman: napas cepat, pucat, gemetar → hentikan dulu.</li>
+                            <li>Kalau ada selang, luka, atau alat medis, hati-hati jangan sampai basah/tertarik.</li>
+                        </ul>
+                        
+                        <h3 class="text-2xl font-bold text-gray-800">Tips tambahan</h3>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Mandikan di waktu pasien paling segar (biasanya pagi).</li>
+                            <li>Gunakan sabun bayi atau sabun khusus kulit sensitif.</li>
+                            <li>Jika memungkinkan, dua orang lebih aman, satu membantu menopang.</li>
+                        </ul>
                     </div>
                 `
             },
             nutrisi: {
-                title: "Nutrisi Optimal untuk Lansia",
+                title: "Cara Menyuapi",
                 subtitle: "Panduan makanan sehat dan bergizi",
                 icon: '<i class="fas fa-carrot text-green-500"></i>',
                 content: `
@@ -457,60 +465,44 @@
                 `
             },
             tulang: {
-                title: "Kesehatan Tulang & Sendi",
-                subtitle: "Cegah osteoporosis dan nyeri sendi",
+                title: "Berjemur",
+                subtitle: "Tata cara berjemur yang aman untuk penyintas stroke",
                 icon: '<i class="fas fa-bone text-blue-500"></i>',
                 content: `
                     <div class="space-y-6">
-                        <h3 class="text-2xl font-bold text-gray-800">🦴 Mengapa Tulang Rapuh di Usia Lanjut?</h3>
-                        <p>Seiring bertambahnya usia, kepadatan tulang menurun. Faktor risiko termasuk kurang kalsium, kurang vitamin D, dan kurang aktivitas fisik.</p>
+                        <h2 class="text-2xl font-bold text-gray-800">📘 Tata Cara Berjemur yang Aman untuk Penyintas Stroke</h2>
+                        <p>Paparan sinar matahari dapat bermanfaat bagi penyintas stroke (mis. untuk sintesis <strong>vitamin D</strong>, meningkatkan mood, dan mendukung rehabilitasi fisik), tetapi harus dilakukan <strong>dengan aman dan terkontrol</strong>. Beberapa prinsip tata cara berjemur yang umum direkomendasikan dalam berbagai sumber kesehatan dan penelitian adalah sebagai berikut:</p>
                         
-                        <div class="bg-blue-50 p-4 rounded-lg">
-                            <h4 class="font-bold text-blue-700">💪 Latihan Penguatan Tulang:</h4>
-                            <div class="grid md:grid-cols-2 gap-4 mt-3">
-                                <div>
-                                    <p class="font-semibold">1. Berjalan Kaki</p>
-                                    <p class="text-sm">30 menit sehari, 5 kali seminggu</p>
-                                </div>
-                                <div>
-                                    <p class="font-semibold">2. Senam Ringan</p>
-                                    <p class="text-sm">Gerakan peregangan dan penguatan</p>
-                                </div>
-                                <div>
-                                    <p class="font-semibold">3. Angkat Beban Ringan</p>
-                                    <p class="text-sm">Botol air 500ml, 3 set x 10 repetisi</p>
-                                </div>
-                                <div>
-                                    <p class="font-semibold">4. Yoga/Stretching</p>
-                                    <p class="text-sm">Meningkatkan fleksibilitas sendi</p>
-                                </div>
-                            </div>
-                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">1) Waktu Berjemur</h3>
+                        <p>📍 <strong>Pagi hari (07.00–10.00)</strong> adalah waktu terbaik untuk berjemur karena intensitas sinar UV lebih rendah, sehingga risiko kulit terbakar lebih minimal.</p>
+                        <p>➡️ Hindari berjemur saat sinar matahari sangat kuat (sekitar 10.00–15.00) karena risiko <em>sunburn</em> dan stres panas lebih tinggi.</p>
                         
-                        <h3 class="text-2xl font-bold text-gray-800 mt-6">🥛 Sumber Kalsium Alami:</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-center">
-                                <span class="bg-blue-100 text-blue-700 p-2 rounded mr-3"><i class="fas fa-glass-whiskey"></i></span>
-                                <div><strong>Susu & Produk Olahan:</strong> Susu rendah lemak, keju, yoghurt</div>
-                            </li>
-                            <li class="flex items-center">
-                                <span class="bg-blue-100 text-blue-700 p-2 rounded mr-3"><i class="fas fa-fish"></i></span>
-                                <div><strong>Ikan:</strong> Ikan teri, sarden, salmon (dengan tulang)</div>
-                            </li>
-                            <li class="flex items-center">
-                                <span class="bg-blue-100 text-blue-700 p-2 rounded mr-3"><i class="fas fa-leaf"></i></span>
-                                <div><strong>Sayuran Hijau:</strong> Brokoli, bayam, kangkung</div>
-                            </li>
-                            <li class="flex items-center">
-                                <span class="bg-blue-100 text-blue-700 p-2 rounded mr-3"><i class="fas fa-sun"></i></span>
-                                <div><strong>Vitamin D:</strong> Berjemur pagi 15 menit (07.00-09.00)</div>
-                            </li>
+                        <h3 class="text-xl font-bold text-gray-800">2) Durasi</h3>
+                        <p>🕒 <strong>10–30 menit per hari</strong>, tergantung pada warna kulit, usia, dan kondisi kesehatan.</p>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li>Banyak sumber umum merekomendasikan <strong>10–15 menit</strong> untuk sebagian besar orang dengan paparan pagi.</li>
+                            <li>Beberapa penelitian menunjukkan <strong>30 menit paparan harian selama beberapa minggu</strong> dapat memberikan efek positif pada suasana hati dan aktivitas pasca stroke.</li>
+                            <li>Durasi optimal berbeda-beda (kulit lebih gelap atau kurang paparan sinar akan membutuhkan waktu lebih panjang).</li>
                         </ul>
+                        
+                        <h3 class="text-xl font-bold text-gray-800">3) Bagian Tubuh yang Dipaparkan</h3>
+                        <p>📌 Biarkan <strong>kulit tangan, wajah, lengan, atau kaki</strong> terpapar sinar matahari langsung tanpa tabir surya <em>jika hanya dalam durasi pendek</em> (tanpa perlindungan).</p>
+                        <p>➡️ Namun, jika berjemur lebih lama atau saat sinar UV kuat, pertimbangkan <strong>tabir surya</strong>, topi, atau pakaian pelindung untuk mengurangi risiko kulit rusak.</p>
+                        
+                        <h3 class="text-xl font-bold text-gray-800">4) Hidrasi dan Proteksi</h3>
+                        <p>💧 Pastikan tubuh cukup <strong>terhidrasi</strong> sebelum dan setelah berjemur karena risiko dehidrasi lebih tinggi pada pasien stroke, terutama yang memakai obat tekanan darah.</p>
+                        <p>👕 Gunakan pelindung seperti <strong>kacamata UV dan topi</strong> jika diperlukan untuk kenyamanan dan proteksi tambahan.</p>
+                        
+                        <h3 class="text-xl font-bold text-gray-800">5) Konsultasi Medis</h3>
+                        <p>📍 Karena setiap pasien stroke berbeda, konsultasikan durasi dan jadwal berjemur <strong>dengan dokter atau tim rehabilitasi</strong>. Paparan sinar matahari tidak mengganti terapi medis utama.</p>
+                        
+                        <h3 class="text-xl font-bold text-gray-800">📌 Kesimpulan</h3>
+                        <p>Berjemur dengan <strong>cara, waktu, dan durasi yang tepat</strong> dapat menjadi <em>intervensi pendukung</em> bagi penyintas stroke, terutama untuk <strong>mendukung produksi vitamin D dan kesehatan mental/aktivitas harian</strong>, namun <strong>tidak menggantikan terapi medis utama</strong>. Semua program paparan sinar matahari sebaiknya disesuaikan dengan kondisi klinis dan dikonsultasikan dengan tenaga profesional kesehatan dahulu.</p>
                     </div>
                 `
             },
             otak: {
-                title: "Menjaga Ketajaman Pikiran",
+                title: "Fisioterapi",
                 subtitle: "Latihan otak dan pencegahan pikun",
                 icon: '<i class="fas fa-brain text-purple-500"></i>',
                 content: `
