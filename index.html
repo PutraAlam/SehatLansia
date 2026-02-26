@@ -12,7 +12,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
     
     <style>
-        /* ===== CSS LENGKAP ===== */
+        /* ===== CSS LENGKAP (sama seperti sebelumnya) ===== */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8fafc;
@@ -91,7 +91,6 @@
             100% { background-color: transparent; }
         }
 
-        /* Style untuk tabel artikel */
         .article-table {
             width: 100%;
             border-collapse: collapse;
@@ -114,7 +113,6 @@
             background-color: #f9fafb;
         }
 
-        /* Responsif mobile */
         @media (max-width: 768px) {
             .sticky { position: relative; top: 0; }
             .grid { display: block; }
@@ -251,7 +249,7 @@
 
         <!-- FORUM DISKUSI DENGAN FIREBASE -->
         <section id="forum" class="grid md:grid-cols-3 gap-8 fade-in-section">
-            <!-- Kolom kiri: form & statistik -->
+            <!-- Kolom kiri -->
             <div class="md:col-span-1 bg-gradient-to-br from-blue-900 to-blue-800 text-white p-8 rounded-2xl shadow-xl h-fit md:sticky md:top-24">
                 <h3 class="text-2xl font-bold mb-4"><i class="fas fa-comments mr-2"></i>Forum Diskusi</h3>
                 <p class="mb-6 text-blue-100 text-sm">Bagikan pengalaman, ajukan pertanyaan, atau bantu jawab pertanyaan anggota lain.</p>
@@ -692,7 +690,6 @@
             if (currentSort === 'newest') {
                 query = query.orderBy('timestamp', 'desc');
             } else {
-                // Untuk sort populer, ambil semua lalu urut manual
                 query = query.orderBy('timestamp', 'desc');
             }
             
@@ -779,6 +776,7 @@
                 const safeTopic = escapeHtml(discussion.topic);
                 const safeContent = escapeHtml(discussion.content);
                 
+                // Perbaikan: gunakan encodeURIComponent untuk parameter topic
                 discussionDiv.innerHTML = `
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
@@ -805,7 +803,8 @@
                                     <i class="fas fa-heart"></i>
                                     <span>${discussion.likes || 0}</span>
                                 </button>
-                                <button onclick="openReplyModal('${discussion.id}', '${safeTopic.replace(/'/g, "\\'")}')" class="flex items-center gap-1 text-gray-600 hover:text-blue-600">
+                                <!-- TOMBOL BALAS DENGAN ENCODE -->
+                                <button onclick="openReplyModal('${discussion.id}', '${encodeURIComponent(safeTopic)}')" class="flex items-center gap-1 text-gray-600 hover:text-blue-600">
                                     <i class="fas fa-reply"></i>
                                     <span>Balas</span>
                                 </button>
@@ -839,6 +838,17 @@
                 .replace(/>/g, "&gt;")
                 .replace(/"/g, "&quot;")
                 .replace(/'/g, "&#039;");
+        }
+
+        // ================== FUNGSI BALAS (DIPERBAIKI) ==================
+        function openReplyModal(discussionId, encodedTopic) {
+            const topic = decodeURIComponent(encodedTopic);
+            replyingToId = discussionId;
+            document.getElementById('replyTitle').textContent = 'Balas Diskusi';
+            document.getElementById('replyToQuestion').textContent = `Membalas: "${topic}"`;
+            document.getElementById('replyUserName').value = '';
+            document.getElementById('replyInput').value = '';
+            openModal('replyModal');
         }
 
         // ================== TAMBAH DISKUSI ==================
@@ -1080,7 +1090,7 @@
             fadeSections.forEach(section => observer.observe(section));
         }
         
-        // Fungsi share sederhana (placeholder)
+        // Fungsi share sederhana
         function shareOnFacebook() {
             const url = window.location.href;
             const text = "Lihat aplikasi SehatLansia - Panduan kesehatan untuk lansia!";
