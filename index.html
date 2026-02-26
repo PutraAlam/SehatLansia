@@ -12,7 +12,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
     
     <style>
-        /* ===== CSS LENGKAP (sama seperti sebelumnya) ===== */
+        /* ===== CSS LENGKAP ===== */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8fafc;
@@ -111,6 +111,23 @@
         }
         .article-table tr:nth-child(even) {
             background-color: #f9fafb;
+        }
+
+        /* Custom aspect ratio untuk video */
+        .aspect-video-custom {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+        .aspect-video-custom iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
 
         @media (max-width: 768px) {
@@ -226,6 +243,29 @@
                 </div>
             </div>
         </div>
+
+        <!-- VIDEO EDUKASI (ditambahkan di sini) -->
+        <section class="mb-16 fade-in-section">
+            <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center">📺 Video Edukasi</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Video 1 -->
+                <div class="aspect-video-custom">
+                    <iframe src="https://www.youtube.com/embed/sdbKDy9Dvak?si=se9CBY0ozaHfNf9D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <!-- Video 2 -->
+                <div class="aspect-video-custom">
+                    <iframe src="https://www.youtube.com/embed/nB-Nj4iCHY4?si=T6mw7qz_a7s-frIC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <!-- Video 3 -->
+                <div class="aspect-video-custom">
+                    <iframe src="https://www.youtube.com/embed/FbcviRv3ixY?si=1YHWW3j3cKxw4Ho-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <!-- Video 4 -->
+                <div class="aspect-video-custom">
+                    <iframe src="https://www.youtube.com/embed/BM0P-iLSlbs?si=40wde1ClED-GqFy4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
 
         <!-- Pencarian -->
         <section class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 mb-16 fade-in-section">
@@ -776,7 +816,6 @@
                 const safeTopic = escapeHtml(discussion.topic);
                 const safeContent = escapeHtml(discussion.content);
                 
-                // Perbaikan: gunakan encodeURIComponent untuk parameter topic
                 discussionDiv.innerHTML = `
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
@@ -803,7 +842,7 @@
                                     <i class="fas fa-heart"></i>
                                     <span>${discussion.likes || 0}</span>
                                 </button>
-                                <!-- TOMBOL BALAS DENGAN ENCODE -->
+                                <!-- TOMBAL BALAS DENGAN ENCODE -->
                                 <button onclick="openReplyModal('${discussion.id}', '${encodeURIComponent(safeTopic)}')" class="flex items-center gap-1 text-gray-600 hover:text-blue-600">
                                     <i class="fas fa-reply"></i>
                                     <span>Balas</span>
@@ -840,7 +879,7 @@
                 .replace(/'/g, "&#039;");
         }
 
-        // ================== FUNGSI BALAS (DIPERBAIKI) ==================
+        // ================== FUNGSI BALAS ==================
         function openReplyModal(discussionId, encodedTopic) {
             const topic = decodeURIComponent(encodedTopic);
             replyingToId = discussionId;
