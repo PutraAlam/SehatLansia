@@ -890,6 +890,7 @@
                 const safeTopic = escapeHtml(discussion.topic);
                 const safeContent = escapeHtml(discussion.content);
                 
+                // Perbaikan: beri id unik pada tombol toggle
                 discussionDiv.innerHTML = `
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
@@ -916,7 +917,6 @@
                                     <i class="fas fa-heart"></i>
                                     <span>${discussion.likes || 0}</span>
                                 </button>
-                                <!-- TOMBAL BALAS DENGAN ENCODE -->
                                 <button onclick="openReplyModal('${discussion.id}', '${encodeURIComponent(safeTopic)}')" class="flex items-center gap-1 text-gray-600 hover:text-blue-600">
                                     <i class="fas fa-reply"></i>
                                     <span>Balas</span>
@@ -926,7 +926,8 @@
                                     <span>${discussion.views || 0}</span>
                                 </span>
                             </div>
-                            <button onclick="toggleReplies('${discussion.id}')" class="text-blue-600 hover:text-blue-800 font-medium">
+                            <!-- Tombol toggle dengan id unik -->
+                            <button id="toggle-${discussion.id}" onclick="toggleReplies('${discussion.id}')" class="text-blue-600 hover:text-blue-800 font-medium">
                                 Lihat Balasan <i class="fas fa-chevron-down ml-1"></i>
                             </button>
                         </div>
@@ -1040,6 +1041,49 @@
                 return discussionRef.update({ replies: replies });
             }).then(() => {
                 closeModal('replyModal');
+                
+                // Update tampilan langsung tanpa menunggu snapshot
+                const repliesContainer = document.getElementById(`replies-${replyingToId}`);
+                if (repliesContainer) {
+                    repliesContainer.classList.remove('hidden');
+                    const replyTime = getTimeAgo(new Date().toISOString());
+                    const replyHtml = `
+                        <div class="reply-item p-4 rounded-lg highlight-new">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center mr-2">
+                                        <i class="fas fa-user text-gray-600 text-sm"></i>
+                                    </div>
+                                    <h5 class="font-bold text-gray-700">${userName || "Tamu"}</h5>
+                                </div>
+                                <span class="text-xs text-gray-400">${replyTime}</span>
+                            </div>
+                            <p class="text-gray-600">${escapeHtml(content)}</p>
+                        </div>
+                    `;
+                    repliesContainer.innerHTML += replyHtml;
+                    
+                    // Update jumlah balasan
+                    const badge = document.querySelector(`#discussion-${replyingToId} .bg-blue-100 span`);
+                    if (badge) {
+                        const currentCount = parseInt(badge.textContent) || 0;
+                        badge.textContent = currentCount + 1;
+                    }
+                    
+                    // Update tombol toggle menggunakan id unik
+                    const toggleButton = document.getElementById(`toggle-${replyingToId}`);
+                    if (toggleButton) {
+                        toggleButton.innerHTML = 'Sembunyikan Balasan <i class="fas fa-chevron-up ml-1"></i>';
+                    }
+                    
+                    // Hapus highlight setelah 2 detik
+                    setTimeout(() => {
+                        const newReplyElement = repliesContainer.lastElementChild;
+                        if (newReplyElement) newReplyElement.classList.remove('highlight-new');
+                    }, 2000);
+                }
+                
+                updateStats();
                 alert('Balasan berhasil dikirim!');
             }).catch(error => {
                 console.error('Error submitting reply:', error);
@@ -1063,7 +1107,7 @@
         // ================== TOGGLE LIHAT BALASAN & UPDATE VIEWS ==================
         function toggleReplies(discussionId) {
             const repliesContainer = document.getElementById(`replies-${discussionId}`);
-            const toggleButton = document.querySelector(`#discussion-${discussionId} button[onclick="toggleReplies('${discussionId}')"]`);
+            const toggleButton = document.getElementById(`toggle-${discussionId}`);
             
             if (repliesContainer.classList.contains('hidden')) {
                 repliesContainer.classList.remove('hidden');
@@ -1096,11 +1140,8 @@
         }
 
         // ================== UPDATE STATISTIK ==================
-        function updateStats(discussions) {
-            const totalDiscussions = discussions.length;
-            const totalReplies = discussions.reduce((sum, d) => sum + (d.replies ? d.replies.length : 0), 0);
-            document.getElementById('totalDiscussions').textContent = totalDiscussions;
-            document.getElementById('totalReplies').textContent = totalReplies;
+        function updateStats() {
+            // Statistik diupdate oleh snapshot, tidak perlu manual
         }
 
         // ================== FUNGSI ARTIKEL ==================
