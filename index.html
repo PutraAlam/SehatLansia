@@ -216,7 +216,7 @@
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-gray-800 mb-2">Cara Menyuapi</h3>
-                    <p class="text-gray-600 text-base mb-4">Panduan aman menyuapi pasien stroke dengan disfagia.</p>
+                    <p class="text-gray-600 text-base mb-4">Panduan lengkap nutrisi dan cara menyuapi pasien stroke.</p>
                     <button class="text-green-600 font-bold hover:underline" onclick="showArticle('nutrisi')">Baca Selengkapnya &rarr;</button>
                 </div>
             </div>
@@ -244,7 +244,7 @@
             </div>
         </div>
 
-        <!-- VIDEO EDUKASI (ditambahkan di sini) -->
+        <!-- VIDEO EDUKASI -->
         <section class="mb-16 fade-in-section">
             <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center">📺 Video Edukasi</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -500,60 +500,134 @@
             },
             nutrisi: {
                 title: "Cara Menyuapi",
-                subtitle: "Panduan aman menyuapi pasien stroke dengan disfagia",
+                subtitle: "Panduan lengkap nutrisi dan cara menyuapi pasien stroke",
                 icon: '<i class="fas fa-carrot text-green-500"></i>',
                 content: `
                     <div class="space-y-6">
-                        <p>Menyuapi pasien stroke memerlukan perhatian khusus karena kondisi ini sering menyebabkan <strong>disfagia</strong> atau kesulitan menelan. Teknik yang salah dapat menyebabkan tersedak, aspirasi (makanan masuk ke saluran napas), hingga pneumonia. Berikut panduan lengkap dan aman untuk membantu proses makan pasien stroke.</p>
-
-                        <h3 class="text-2xl font-bold text-gray-800">1. Persiapan Sebelum Menyuapi</h3>
-                        <p>Sebelum memulai, pastikan pasien dalam keadaan siap dan lingkungan mendukung.</p>
-                        <ul class="list-disc pl-6 space-y-2">
-                            <li><strong>Konsultasi dengan Ahli:</strong> Sangat penting untuk mengetahui jenis dan tekstur makanan yang aman sesuai dengan tingkat keparahan stroke dan kemampuan menelan pasien.</li>
+                        <p>Stroke tidak hanya menyerang secara tiba-tiba, tetapi juga mengawali perjalanan panjang menuju pemulihan. Dalam proses yang krusial ini, <strong>makanan memegang peranan yang sangat penting</strong>. Lebih dari sekadar pengisi perut, makanan adalah "obat" yang dapat membantu memperbaiki jaringan otak, mengontrol faktor risiko seperti tekanan darah tinggi, serta mencegah stroke berulang.</p>
+                        
+                        <p>Namun, memberikan makan pada pasien stroke tidak bisa dilakukan secara sembarangan. Kondisi seperti <strong>disfagia (kesulitan menelan)</strong> sering kali menyertai pasca stroke. Teknik menyuapi yang salah dapat menyebabkan tersedak, aspirasi (makanan masuk ke saluran napas), hingga pneumonia yang berbahaya.</p>
+                        
+                        <p>Oleh karena itu, panduan ini hadir secara lengkap, mulai dari <strong>memilih jenis dan porsi makanan yang tepat sesuai berat badan</strong>, hingga <strong>teknik menyuapi yang aman dan benar</strong>.</p>
+                        
+                        <h3 class="text-2xl font-bold text-gray-800">Prinsip Dasar Makan untuk Semua Penyandang Stroke</h3>
+                        <p>Sebelum membahas porsi dan teknik, ada beberapa prinsip dasar yang harus dipahami:</p>
+                        <ol class="list-decimal pl-6 space-y-2">
+                            <li><strong>Variasi adalah Kunci:</strong> Usahakan mengonsumsi beragam jenis makanan. Idealnya, dalam sehari konsumsilah 12 jenis makanan berbeda dan dalam seminggu mencapai 25 jenis.</li>
+                            <li><strong>Batasi Garam, Gula, dan Lemak Jahat:</strong> Ini adalah "tiga serangkai" musuh utama. Makanan tinggi garam meningkatkan tekanan darah. Gula berlebih memicu kenaikan berat badan. Lemak jenuh dan trans (dari gorengan) meningkatkan kolesterol jahat (LDL) yang menyumbat pembuluh darah.</li>
+                            <li><strong>Utamakan Cara Masak Sehat:</strong> Hindari menggoreng dengan minyak banyak. Olah makanan dengan cara <strong>dikukus, direbus, ditumis dengan sedikit minyak, dipanggang, atau ditim</strong>.</li>
+                            <li><strong>Perhatikan Keamanan Makan:</strong> Kenali kemampuan menelan pasien. Jangan memaksakan tekstur makanan yang tidak sesuai karena risikonya sangat fatal.</li>
+                        </ol>
+                        
+                        <h3 class="text-2xl font-bold text-gray-800">Panduan Porsi Makan Berdasarkan Berat Badan</h3>
+                        <p>Cara terbaik untuk menentukan kebutuhan berat badan adalah dengan menghitung Indeks Massa Tubuh (IMT): <strong>berat badan (kg) dibagi kuadrat tinggi badan (m²)</strong>.</p>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li><strong>Normal:</strong> IMT 18.5 – 24.9 kg/m²</li>
+                            <li><strong>Gemuk (Overweight):</strong> IMT 25 – 29.9 kg/m²</li>
+                            <li><strong>Obesitas:</strong> IMT ≥ 30 kg/m²</li>
+                        </ul>
+                        
+                        <h4 class="text-xl font-bold text-gray-700 mt-4">1. Untuk Penyandang Stroke dengan Berat Badan Normal</h4>
+                        <p>Tujuannya adalah <strong>mempertahankan berat badan ideal</strong> sambil memastikan asupan nutrisi cukup untuk pemulihan.</p>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li><strong>Kebutuhan Energi:</strong> Sekitar <strong>25-35 kkal per kilogram berat badan per hari</strong>.</li>
+                            <li><strong>Porsi Makan Harian:</strong>
+                                <ul class="list-circle pl-6 mt-1">
+                                    <li><strong>Sumber Karbohidrat:</strong> 4-5 porsi. Prioritaskan karbohidrat kompleks seperti <strong>nasi merah, oatmeal, jagung, roti gandum, atau kentang</strong>.</li>
+                                    <li><strong>Sumber Protein:</strong> 2-3 porsi. Utamakan protein tanpa lemak seperti <strong>ikan (terutama salmon, makarel yang kaya omega-3), ayam tanpa kulit, tahu, atau tempe</strong>.</li>
+                                    <li><strong>Sayuran:</strong> <strong>Minimal 5 porsi (400-500 gram)</strong>. Sayuran hijau dan berwarna-warni kaya antioksidan.</li>
+                                    <li><strong>Buah:</strong> 2-3 porsi. Pilih buah utuh daripada jus untuk mendapatkan serat maksimal.</li>
+                                    <li><strong>Susu dan Olahannya:</strong> 1-2 porsi produk <strong>rendah lemak</strong>.</li>
+                                    <li><strong>Lemak Sehat:</strong> 5-7 sendok teh minyak untuk seluruh masakan. Gunakan <strong>minyak zaitun atau minak kanola</strong>.</li>
+                                    <li><strong>Cairan:</strong> Air putih <strong>minimal 1,5 liter per hari</strong> (kecuali ada batasan dari dokter).</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <h4 class="text-xl font-bold text-gray-700 mt-4">2. Untuk Penyandang Stroke dengan Berat Badan Gemuk dan Obesitas</h4>
+                        <p>Bagi yang kelebihan berat badan, <strong>menurunkan berat badan adalah prioritas</strong> untuk memperbaiki faktor risiko. Targetnya adalah menurunkan 5-15% dari berat badan awal.</p>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li><strong>Kebutuhan Energi:</strong> <strong>Defisit kalori</strong>, kurangi asupan sebesar <strong>500-1000 kkal per hari</strong> dari kebutuhan normal.</li>
+                            <li><strong>Porsi Makan Harian (Panduan Defisit Kalori):</strong>
+                                <ul class="list-circle pl-6 mt-1">
+                                    <li><strong>Sumber Karbohidrat:</strong> 3-4 porsi. Pilih karbohidrat kompleks berserat tinggi seperti <strong>oatmeal atau quinoa</strong>.</li>
+                                    <li><strong>Sumber Protein:</strong> 2-3 porsi protein tanpa lemak. Protein menjaga massa otot selama penurunan berat badan.</li>
+                                    <li><strong>Sayuran:</strong> <strong>Minimal 5 porsi atau lebih</strong>. Sayuran rendah kalori tetapi tinggi serat, ideal untuk mengisi perut.</li>
+                                    <li><strong>Buah:</strong> 1-2 porsi. Pilih buah dengan indeks glikemik rendah seperti <strong>apel, pir, atau beri-berian</strong>.</li>
+                                    <li><strong>Susu dan Olahannya:</strong> 1 porsi produk <strong>bebas lemak</strong>.</li>
+                                    <li><strong>Lemak Sehat:</strong> 3-4 sendok teh per hari. Perhatikan jumlahnya karena tetap tinggi kalori.</li>
+                                    <li><strong>Hindari Makanan Olahan:</strong> Jauhi makanan kemasan, cepat saji, dan minuman manis.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <h4 class="text-xl font-bold text-gray-700 mt-4">Tabel Ringkasan Anjuran Porsi Makan</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Kelompok Makanan</th>
+                                    <th>Berat Badan Normal</th>
+                                    <th>Berat Badan Gemuk & Obesitas</th>
+                                    <th>Contoh Makanan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Karbohidrat</strong></td><td>4-5 porsi</td><td>3-4 porsi</td><td>Nasi merah, oatmeal, jagung, roti gandum</td></tr>
+                                <tr><td><strong>Protein</strong></td><td>2-3 porsi</td><td>2-3 porsi (pilih terrendah lemak)</td><td>Ikan, ayam tanpa kulit, tahu, tempe</td></tr>
+                                <tr><td><strong>Sayuran</strong></td><td>≥ 5 porsi</td><td>≥ 5 porsi (perbanyak)</td><td>Bayam, brokoli, wortel, tomat</td></tr>
+                                <tr><td><strong>Buah-buahan</strong></td><td>2-3 porsi</td><td>1-2 porsi</td><td>Apel, pisang, jeruk, beri</td></tr>
+                                <tr><td><strong>Susu & Olahan</strong></td><td>1-2 porsi (rendah lemak)</td><td>1 porsi (bebas lemak)</td><td>Susu skim, yoghurt rendah lemak</td></tr>
+                                <tr><td><strong>Lemak & Minyak</strong></td><td>5-7 sdt/hari</td><td>3-4 sdt/hari</td><td>Minyak zaitun, minyak kanola</td></tr>
+                                <tr><td><strong>Garam</strong></td><td>< 5g (1 sdt)/hari</td><td>< 5g (1 sdt)/hari</td><td>Hindari makanan asin dan proses</td></tr>
+                                <tr><td><strong>Gula Tambahan</strong></td><td>< 30g (7 sdt)/hari</td><td>< 30g (7 sdt)/hari</td><td>Hindari minuman manis, kue, sirup</td></tr>
+                            </tbody>
+                        </table>
+                        
+                        <h3 class="text-2xl font-bold text-gray-800">Panduan Aman Menyuapi Pasien Stroke</h3>
+                        <p>Selain memilih jenis dan porsi makanan yang tepat, cara menyajikan dan menyuapi makanan pun tidak kalah pentingnya. Ikuti langkah-langkah aman berikut ini.</p>
+                        
+                        <h4 class="text-xl font-bold text-gray-700">1. Persiapan Sebelum Menyuapi</h4>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li><strong>Konsultasi dengan Ahli:</strong> Sangat penting untuk mengetahui jenis dan <strong>tekstur makanan yang aman</strong> (lumat, cincang, atau kental) sesuai dengan tingkat keparahan stroke dan kemampuan menelan pasien.</li>
                             <li><strong>Ciptakan Suasana Tenang:</strong> Hindari distraksi seperti suara televisi atau percakapan ramai agar pasien dapat fokus pada proses menelan.</li>
                             <li><strong>Kebersihan Mulut:</strong> Pastikan mulut pasien bersih dan gigi palsu (jika ada) terpasang dengan baik.</li>
                         </ul>
-
-                        <h3 class="text-2xl font-bold text-gray-800">2. Posisi Duduk yang Tepat dan Aman</h3>
-                        <p>Posisi tubuh adalah faktor krusial untuk mencegah tersedak. <strong>Hindari menyuapi pasien dalam posisi berbaring</strong> karena sangat berisiko menyebabkan makanan masuk ke saluran pernapasan.</p>
+                        
+                        <h4 class="text-xl font-bold text-gray-700">2. Posisi Duduk yang Tepat dan Aman</h4>
+                        <p>Posisi tubuh adalah faktor krusial untuk mencegah tersedak. <strong>Hindari menyuapi pasien dalam posisi berbaring.</strong></p>
                         <ul class="list-disc pl-6 space-y-2">
-                            <li><strong>Posisi Tegak:</strong> Posisikan pasien <strong>duduk setegak mungkin</strong> di kursi atau di tempat tidur. Gunakan bantal untuk menopang punggung dan leher agar nyaman dan stabil.</li>
-                            <li><strong>Posisi Semifowler:</strong> Jika pasien harus di tempat tidur, atur tempat tidur pada posisi <strong>semifowler</strong>, yaitu dengan kepala lebih tinggi, sekitar 45-90 derajat. Posisi ini melancarkan pernapasan dan mengoptimalkan proses menelan.</li>
-                            <li><strong>Topangan Tangan:</strong> Topang lengan pasien yang lemah atau lumpuh dengan bantal untuk kenyamanan dan mencegah ketegangan.</li>
-                            <li><strong>Sedikit Condong ke Depan:</strong> Jika memungkinkan, posisikan kepala pasien sedikit menunduk atau condong ke depan saat akan menelan, bukan menengadah ke belakang.</li>
+                            <li><strong>Posisi Tegak:</strong> Posisikan pasien duduk setegak mungkin di kursi. Gunakan bantal untuk menopang punggung dan leher agar nyaman dan stabil.</li>
+                            <li><strong>Posisi Semifowler:</strong> Jika pasien harus di tempat tidur, atur tempat tidur pada posisi semifowler, yaitu dengan kepala lebih tinggi, sekitar <strong>45-90 derajat</strong>. Posisi ini melancarkan pernapasan dan mengoptimalkan proses menelan.</li>
+                            <li><strong>Topangan Tangan:</strong> Topang lengan pasien yang lemah atau lumpuh dengan bantal untuk kenyamanan.</li>
+                            <li><strong>Sedikit Condong ke Depan:</strong> Jika memungkinkan, posisikan kepala pasien <strong>sedikit menunduk atau condong ke depan</strong> saat akan menelan, bukan menengadah ke belakang.</li>
                         </ul>
                         
                         <!-- GAMBAR DARI DOKUMEN ASLI -->
                         <img src="https://i.ibb.co.com/y1rYtG9/gambar-jpg.jpg" alt="Ilustrasi posisi condong ke depan saat menyuapi pasien stroke" class="w-full max-w-md mx-auto rounded-lg shadow-lg my-6">
                         <p class="text-sm text-gray-500 text-center mb-4">Gambar : posisi tegak , posisi semiflower , topangan tangan , dan sedikit condong kedepan</p>
-
-                        <h3 class="text-2xl font-bold text-gray-800">3. Teknik Menyuapi yang Benar</h3>
-                        <p>Cara menyajikan makanan dan menyuapi juga mempengaruhi keamanan pasien.</p>
+                        
+                        <h4 class="text-xl font-bold text-gray-700">3. Teknik Menyuapi yang Benar</h4>
                         <ul class="list-disc pl-6 space-y-2">
-                            <li><strong>Konsistensi Makanan:</strong> Sesuaikan tekstur makanan dengan kemampuan pasien. Makanan sebaiknya lunak, <strong>dihaluskan (bubur tim, kentang tumbuk), atau dicincang</strong> agar mudah dikendalikan di dalam mulut. Hindari makanan yang lengket, keras (seperti kacang), atau yang sulit dikunyah.</li>
-                            <li><strong>Porsi Kecil:</strong> Ambil makanan dalam porsi <strong>kecil di ujung sendok</strong>. Jangan mengisi sendok terlalu penuh.</li>
+                            <li><strong>Konsistensi Makanan:</strong> Sesuaikan tekstur makanan dengan kemampuan pasien. Makanan sebaiknya <strong>lunak, dihaluskan (bubur tim, kentang tumbuk), atau dicincang</strong>. Hindari makanan yang lengket, keras (seperti kacang), atau yang sulit dikunyah.</li>
+                            <li><strong>Porsi Kecil:</strong> Ambil makanan dalam porsi kecil di ujung sendok. Jangan mengisi sendok terlalu penuh.</li>
                             <li><strong>Sentuh Bibir:</strong> Sentuhkan sendok perlahan ke bibir bawah pasien untuk memberikan stimulus sebelum memasukkan makanan.</li>
                             <li><strong>Letakkan di Sisi Mulut yang Sehat:</strong> Jika pasien mengalami kelemahan pada satu sisi wajah, letakkan makanan di <strong>sisi mulut yang sehat</strong> untuk memudahkan kontrol otot saat mengunyah dan menelan.</li>
-                            <li><strong>Beri Waktu:</strong> Bersabarlah. Beri pasien waktu untuk mengunyah dan menelan setiap suapan. Jangan terburu-buru menyuap lagi sebelum suapan sebelumnya tertelan bersih. Dorong pasien untuk menelan dua kali setiap suapan.</li>
+                            <li><strong>Beri Waktu:</strong> Bersabarlah. Beri pasien waktu untuk mengunyah dan menelan setiap suapan. <strong>Jangan terburu-buru</strong> menyuap lagi sebelum suapan sebelumnya tertelan bersih. Dorong pasien untuk menelan dua kali setiap suapan.</li>
                             <li><strong>Pantau Batang Tenggorok:</strong> Perhatikan jakun (laring) pasien. Pastikan jakun terangkat dan turun kembali sebagai tanda proses menelan telah selesai.</li>
                         </ul>
-
-                        <h3 class="text-2xl font-bold text-gray-800">4. Pengolahan Makanan yang Tepat</h3>
-                        <p>Selain teknik menyuapi, jenis makanan juga berperan dalam pemulihan.</p>
+                        
+                        <h4 class="text-xl font-bold text-gray-700">4. Perhatikan Tanda-Tanda Bahaya</h4>
+                        <p>Saat menyuapi, waspadai tanda-tanda kesulitan menelan yang serius. Jika salah satu dari tanda ini muncul, <strong>hentikan pemberian makan segera</strong> dan konsultasikan dengan dokter atau terapis wicara.</p>
                         <ul class="list-disc pl-6 space-y-2">
-                            <li><strong>Bahan Makanan:</strong> Pilih makanan bergizi seimbang yang kaya akan protein, serat, vitamin, dan mineral. Contohnya ikan (salmon, tuna yang kaya omega-3), daging ayam tanpa kulit, tahu tempe, sayuran (bayam, wortel), dan buah (pisang, pepaya, apel).</li>
-                            <li><strong>Cara Masak:</strong> Olah makanan dengan cara <strong>dikukus, direbus, atau ditim</strong>. Hindari menggoreng karena dapat meningkatkan kadar lemak jenuh.</li>
-                            <li><strong>Batasi Garam, Gula, dan Lemak:</strong> Kurangi penggunaan garam, terutama jika pasien memiliki hipertensi. Hindari juga makanan berlemak jenuh, jeroan, dan minuman manis kemasan.</li>
+                            <li><strong>Batuk atau Tersedak</strong> saat atau setelah makan.</li>
+                            <li><strong>Suara Menjadi "Grok-grok"</strong> (napas berbunyi basah) setelah menelan, yang menandakan adanya cairan atau makanan di pita suara.</li>
+                            <li>Makanan keluar dari hidung atau mulut.</li>
+                            <li>Kesulitan mengunyah dalam waktu lama.</li>
                         </ul>
-
-                        <h3 class="text-2xl font-bold text-gray-800">5. Perhatikan Tanda-Tanda Bahaya</h3>
-                        <p>Saat menyuapi, waspadai tanda-tanda kesulitan menelan yang serius.</p>
-                        <ul class="list-disc pl-6 space-y-2">
-                            <li><strong>Batuk atau Tersedak:</strong> Jika pasien batuk atau tersedak saat atau setelah makan, ini bisa menjadi tanda makanan masuk ke saluran napas. Segera hentikan pemberian makan.</li>
-                            <li><strong>Suara Menjadi "Grok-grok":</strong> Suara napas yang berbunyi basah atau seperti bergemericik setelah menelan adalah indikasi adanya cairan atau makanan di pita suara.</li>
-                            <li><strong>Makanan Keluar dari Hidung atau Mulut.</strong></li>
-                            <li><strong>Kesulitan Mengunyah.</strong></li>
-                        </ul>
+                        
+                        <hr class="my-6 border-gray-300">
+                        <p>Dengan memadukan <strong>pilihan makanan yang tepat gizi</strong> dan <strong>teknik menyuapi yang aman</strong>, proses pemulihan stroke dapat berjalan lebih optimal. Ingatlah, kesabaran dan perhatian terhadap detail kecil dapat mencegah komplikasi serius dan meningkatkan kualitas hidup penyandang stroke.</p>
+                        <p><strong>Konsultasikan selalu dengan dokter dan ahli gizi</strong> untuk mendapatkan rencana diet yang paling sesuai dengan kondisi individu pasien.</p>
                     </div>
                 `
             },
