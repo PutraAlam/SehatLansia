@@ -890,7 +890,6 @@
                 const safeTopic = escapeHtml(discussion.topic);
                 const safeContent = escapeHtml(discussion.content);
                 
-                // Perbaikan: beri id unik pada tombol toggle
                 discussionDiv.innerHTML = `
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
@@ -926,20 +925,29 @@
                                     <span>${discussion.views || 0}</span>
                                 </span>
                             </div>
-                            <!-- Tombol toggle dengan id unik -->
-                            <button id="toggle-${discussion.id}" onclick="toggleReplies('${discussion.id}')" class="text-blue-600 hover:text-blue-800 font-medium">
+                            <!-- Tombol toggle dengan id unik dan data attribute -->
+                            <button id="toggle-${discussion.id}" class="toggle-replies-btn text-blue-600 hover:text-blue-800 font-medium" data-discussion-id="${discussion.id}">
                                 Lihat Balasan <i class="fas fa-chevron-down ml-1"></i>
                             </button>
                         </div>
                         
                         <!-- Replies Container -->
-                        <div id="replies-${discussion.id}" class="mt-6 hidden space-y-4">
+                        <div id="replies-${discussion.id}" class="replies-container mt-6 hidden space-y-4">
                             ${repliesHtml}
                         </div>
                     </div>
                 `;
                 
                 list.appendChild(discussionDiv);
+            });
+
+            // Tambahkan event listener untuk semua tombol toggle (agar bisa menutup yang lain)
+            document.querySelectorAll('.toggle-replies-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const discussionId = this.dataset.discussionId;
+                    toggleReplies(discussionId);
+                });
             });
         }
 
@@ -1041,49 +1049,9 @@
                 return discussionRef.update({ replies: replies });
             }).then(() => {
                 closeModal('replyModal');
-                
-                // Update tampilan langsung tanpa menunggu snapshot
-                const repliesContainer = document.getElementById(`replies-${replyingToId}`);
-                if (repliesContainer) {
-                    repliesContainer.classList.remove('hidden');
-                    const replyTime = getTimeAgo(new Date().toISOString());
-                    const replyHtml = `
-                        <div class="reply-item p-4 rounded-lg highlight-new">
-                            <div class="flex justify-between items-start mb-2">
-                                <div class="flex items-center">
-                                    <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center mr-2">
-                                        <i class="fas fa-user text-gray-600 text-sm"></i>
-                                    </div>
-                                    <h5 class="font-bold text-gray-700">${userName || "Tamu"}</h5>
-                                </div>
-                                <span class="text-xs text-gray-400">${replyTime}</span>
-                            </div>
-                            <p class="text-gray-600">${escapeHtml(content)}</p>
-                        </div>
-                    `;
-                    repliesContainer.innerHTML += replyHtml;
-                    
-                    // Update jumlah balasan
-                    const badge = document.querySelector(`#discussion-${replyingToId} .bg-blue-100 span`);
-                    if (badge) {
-                        const currentCount = parseInt(badge.textContent) || 0;
-                        badge.textContent = currentCount + 1;
-                    }
-                    
-                    // Update tombol toggle menggunakan id unik
-                    const toggleButton = document.getElementById(`toggle-${replyingToId}`);
-                    if (toggleButton) {
-                        toggleButton.innerHTML = 'Sembunyikan Balasan <i class="fas fa-chevron-up ml-1"></i>';
-                    }
-                    
-                    // Hapus highlight setelah 2 detik
-                    setTimeout(() => {
-                        const newReplyElement = repliesContainer.lastElementChild;
-                        if (newReplyElement) newReplyElement.classList.remove('highlight-new');
-                    }, 2000);
-                }
-                
-                updateStats();
+                // Tidak perlu update manual, snapshot akan merender ulang
+                // Tapi kita ingin membuka container balasan setelah mengirim
+                // Karena snapshot akan merender ulang, kita bisa andalkan itu
                 alert('Balasan berhasil dikirim!');
             }).catch(error => {
                 console.error('Error submitting reply:', error);
@@ -1109,17 +1077,32 @@
             const repliesContainer = document.getElementById(`replies-${discussionId}`);
             const toggleButton = document.getElementById(`toggle-${discussionId}`);
             
-            if (repliesContainer.classList.contains('hidden')) {
-                repliesContainer.classList.remove('hidden');
-                toggleButton.innerHTML = 'Sembunyikan Balasan <i class="fas fa-chevron-up ml-1"></i>';
-                
-                db.collection('discussions').doc(discussionId).update({
-                    views: firebase.firestore.FieldValue.increment(1)
-                }).catch(error => console.error('Error updating views:', error));
-            } else {
+            // Jika yang diklik sudah terbuka, tutup saja
+            if (!repliesContainer.classList.contains('hidden')) {
                 repliesContainer.classList.add('hidden');
                 toggleButton.innerHTML = 'Lihat Balasan <i class="fas fa-chevron-down ml-1"></i>';
+                return;
             }
+
+            // Tutup semua container balasan lainnya
+            document.querySelectorAll('.replies-container').forEach(container => {
+                container.classList.add('hidden');
+            });
+            // Ubah semua tombol toggle lainnya ke "Lihat Balasan"
+            document.querySelectorAll('.toggle-replies-btn').forEach(btn => {
+                if (btn.dataset.discussionId !== discussionId) {
+                    btn.innerHTML = 'Lihat Balasan <i class="fas fa-chevron-down ml-1"></i>';
+                }
+            });
+
+            // Buka yang sekarang
+            repliesContainer.classList.remove('hidden');
+            toggleButton.innerHTML = 'Sembunyikan Balasan <i class="fas fa-chevron-up ml-1"></i>';
+            
+            // Update views count
+            db.collection('discussions').doc(discussionId).update({
+                views: firebase.firestore.FieldValue.increment(1)
+            }).catch(error => console.error('Error updating views:', error));
         }
 
         // ================== SORT DISKUSI ==================
@@ -1140,8 +1123,11 @@
         }
 
         // ================== UPDATE STATISTIK ==================
-        function updateStats() {
-            // Statistik diupdate oleh snapshot, tidak perlu manual
+        function updateStats(discussions) {
+            const totalDiscussions = discussions.length;
+            const totalReplies = discussions.reduce((sum, d) => sum + (d.replies ? d.replies.length : 0), 0);
+            document.getElementById('totalDiscussions').textContent = totalDiscussions;
+            document.getElementById('totalReplies').textContent = totalReplies;
         }
 
         // ================== FUNGSI ARTIKEL ==================
